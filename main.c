@@ -124,7 +124,7 @@ void search(link head)
     }
     else
     {
-        printf("\n\t\tName\t\tGender\t\tAge\t\tPhone Number\n");
+        printf("\n\t\tName\tPhone Number\n");
         printf("\t\t%s\t\t", p->name);
         printf("%s\n", p->num);
     }
