@@ -131,12 +131,12 @@ void search(link head)
 }
 
 //Function to Modify all information in the node based on name of the contact
-void mod_node(Link head)
+void mod_node(link head)
 {
     char comp[20];
     int choice;
-    Link q = head;
-    Link p = q->next;
+    link q = head;
+    link p = q->next;
     printf("\n\tEnter the Contact Name to be Modified: ");
     scanf("%s", comp);
     while (p != NULL && (strcmp(p->name, comp) != 0))
@@ -152,10 +152,8 @@ void mod_node(Link head)
     else
     {
         printf("\n\t1. Modify Name\n");
-        printf("\t2. Modify Gender\n");
-        printf("\t3. Modify Age\n");
-        printf("\t4. Modify Phone Number\n");
-        printf("\t5. Exit Modification\n");
+        printf("\t2. Modify Number\n");
+        printf("\t3. Exit Modification\n");
         printf("\n\tEnter your Choice: ");
         scanf("%d", &choice);
         switch (choice)
@@ -164,33 +162,8 @@ void mod_node(Link head)
             printf("\n\tEnter Modified Name: ");
             scanf("%s", p->name);
             break;
+
         case 2:
-            while (1 == 1)
-            {
-                printf("\n\tEnter the Modified Gender (male or female): ");
-                scanf("%s", p->sex);
-                if ((strcmp(p->sex, "male") != 0) && (strcmp(p->sex, "female") != 0))
-                {
-                    printf("\n\tInvalid Gender!\n\n");
-                }
-                else
-                    break;
-            }
-            break;
-        case 3:
-            while (1 == 1)
-            {
-                printf("\n\tEnter the Modified Age: ");
-                scanf("%d", &p->age);
-                if (p->age < 0 || p->age > 120)
-                {
-                    printf("\n\tInvalid Age!\n\n");
-                }
-                else
-                    break;
-            }
-            break;
-        case 4:
             while (1 == 1)
             {
                 printf("\n\tEnter the Modified Phone Number: ");
@@ -203,7 +176,7 @@ void mod_node(Link head)
                     break;
             }
             break;
-        case 5:
+        case 3:
             break;
         }
     }
