@@ -77,6 +77,42 @@ void insert(link head,link new_node)
     
 }
 
+
+//Function to delete a contact information
+void delete_node(link head)
+{
+	link p,q;
+	char comp[20];
+	p = head->next;
+	q = head;
+	printf ("\n\tEnter the Contact Name to be Deleted: ");
+	scanf("%s",comp);
+	if(p == NULL)
+	{
+		printf("\n\tPhonebook has no Contacts!\n\n");
+	}
+	else
+	{
+		//Determining whether the names are the same with the entered name and continue traversing
+		while(p != NULL && (strcmp(p->name,comp)!=0))
+		{
+			q = p;
+			p = p->next;
+		}
+		if(NULL == p)
+		{
+			printf("\n\tThere is no such Contact!\n\n");
+		}
+		else
+		{
+			q->next = p->next;
+			free(p);
+			printf("\n\tContact Deleted!\n\n");
+		}
+	}
+}
+
+
 int main()
 {
     int i,j,m;
