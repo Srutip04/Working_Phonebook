@@ -23,11 +23,58 @@ void search(link head);
 void modify(link head);
 
 
+
+
 //Function to Create a new node initialization list
 void create_link(link *head)
 {
     *head=(link)malloc(sizeof(Node));
     (*head)->next=NULL;
+}
+
+
+
+//Function to insert contact details
+void insert(link head,link new_node)
+{
+    link p,q;
+    q=head;
+    p=q->next;
+    new_node=(link)malloc(sizeof(Node));
+
+    printf("\n\tEnter Name: ");
+    scanf("%s",new_node->name);
+
+    //check whether the phone number has correct number of digits
+    while (1==1)
+    {
+        /* code */
+        printf("\tEnter Phone Number: ");
+		scanf("%s",new_node->num);
+		if(strlen(new_node->num)!=10)
+		{
+			printf("\n\tInvalid Phone Number!\n\n");
+		}
+		else
+			break;	
+    }
+
+    if(NULL == p)
+	{
+		q->next = new_node;
+		new_node = p;
+	}
+	else
+	{
+		while(strcmp((new_node->name),(p->name))==1)
+		{
+			p = p->next;
+			q = q->next;
+		}
+		new_node->next = p;
+		q->next = new_node;
+	}
+    
 }
 
 int main()
