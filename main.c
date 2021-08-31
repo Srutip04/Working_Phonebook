@@ -131,7 +131,7 @@ void search(link head)
 }
 
 //Function to Modify all information in the node based on name of the contact
-void mod_node(link head)
+void modify(link head)
 {
     char comp[20];
     int choice;
@@ -223,16 +223,16 @@ int main()
         switch (m)
         {
         case 1:
-            insert_node(head, new_node);
+            insert(head, new_node);
             break;
         case 2:
             search(head);
             break;
         case 3:
-            mod_node(head);
+            modify(head);
             break;
         case 4:
-            delete_node(head);
+            delete(head);
             break;
         case 5:
             display(head);
