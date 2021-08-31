@@ -126,8 +126,6 @@ void search(link head)
 	{
 		printf("\n\t\tName\t\tGender\t\tAge\t\tPhone Number\n");
 		printf("\t\t%s\t\t",p->name );
-		printf("%s\t\t",p->sex );
-		printf("%d\t\t",p->age );
 		printf("%s\n",p->num );
 	}
 }
