@@ -15,6 +15,13 @@ struct node
 typedef struct node Node;
 typedef struct node *link;
 
+//Function Definitions
+void display(link head);
+void insert(link head,link new_node);
+void delete(link head);
+void search(link head);
+void modify(link head);
+
 
 //Function to Create a new node initialization list
 void create_link(link *head)
