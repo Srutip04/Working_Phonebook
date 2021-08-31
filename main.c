@@ -182,6 +182,25 @@ void mod_node(link head)
     }
 }
 
+// Function to Traverve through the linked list and display the contents of each node
+void display(link head)
+{
+    link p;
+    p = head->next;
+    if (NULL == p)
+    {
+        printf("\n\tPhonebook has No Contacts!\n\n");
+        return;
+    }
+
+    printf("\n\t\tName\t\tPhone Number\n");
+    while (p != NULL)
+    {
+        printf("\t\t%s\t\t", p->name);
+        printf("%s\n", p->num);
+        p = p->next;
+    }
+}
 int main()
 {
     int i, j, m;
