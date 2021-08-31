@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 
+//Structure Declaration
 struct node
 {
     /* data */
