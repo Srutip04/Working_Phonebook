@@ -71,7 +71,7 @@ void insert(link head, link new_node)
 }
 
 //Function to delete a contact information
-void delete_node(link head)
+void delete (link head)
 {
     link p, q;
     char comp[20];
@@ -107,27 +107,106 @@ void delete_node(link head)
 //Function to search a given contact by its name
 void search(link head)
 {
-	char comp[20];
-	link q=head;
-	link p=q->next;
-	printf ("\n\tEnter the Contact Name to be Searched: "); 
-	scanf("%s",comp);
-	while(p!=NULL&&(strcmp(p->name,comp)!=0))
-	{
-		q=p;
-		p=p->next;
-	}
-	if(NULL == p)
-	{
-		printf("\n\tCheck no such person!\n\n");
-		return;
-	}
-	else
-	{
-		printf("\n\t\tName\t\tGender\t\tAge\t\tPhone Number\n");
-		printf("\t\t%s\t\t",p->name );
-		printf("%s\n",p->num );
-	}
+    char comp[20];
+    link q = head;
+    link p = q->next;
+    printf("\n\tEnter the Contact Name to be Searched: ");
+    scanf("%s", comp);
+    while (p != NULL && (strcmp(p->name, comp) != 0))
+    {
+        q = p;
+        p = p->next;
+    }
+    if (NULL == p)
+    {
+        printf("\n\tCheck no such person!\n\n");
+        return;
+    }
+    else
+    {
+        printf("\n\t\tName\t\tGender\t\tAge\t\tPhone Number\n");
+        printf("\t\t%s\t\t", p->name);
+        printf("%s\n", p->num);
+    }
+}
+
+//Function to Modify all information in the node based on name of the contact
+void mod_node(Link head)
+{
+    char comp[20];
+    int choice;
+    Link q = head;
+    Link p = q->next;
+    printf("\n\tEnter the Contact Name to be Modified: ");
+    scanf("%s", comp);
+    while (p != NULL && (strcmp(p->name, comp) != 0))
+    {
+        q = p;
+        p = p->next;
+    }
+    if (NULL == p)
+    {
+        printf("\n\tThere is No such Contact!\n\n");
+        return;
+    }
+    else
+    {
+        printf("\n\t1. Modify Name\n");
+        printf("\t2. Modify Gender\n");
+        printf("\t3. Modify Age\n");
+        printf("\t4. Modify Phone Number\n");
+        printf("\t5. Exit Modification\n");
+        printf("\n\tEnter your Choice: ");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+        case 1:
+            printf("\n\tEnter Modified Name: ");
+            scanf("%s", p->name);
+            break;
+        case 2:
+            while (1 == 1)
+            {
+                printf("\n\tEnter the Modified Gender (male or female): ");
+                scanf("%s", p->sex);
+                if ((strcmp(p->sex, "male") != 0) && (strcmp(p->sex, "female") != 0))
+                {
+                    printf("\n\tInvalid Gender!\n\n");
+                }
+                else
+                    break;
+            }
+            break;
+        case 3:
+            while (1 == 1)
+            {
+                printf("\n\tEnter the Modified Age: ");
+                scanf("%d", &p->age);
+                if (p->age < 0 || p->age > 120)
+                {
+                    printf("\n\tInvalid Age!\n\n");
+                }
+                else
+                    break;
+            }
+            break;
+        case 4:
+            while (1 == 1)
+            {
+                printf("\n\tEnter the Modified Phone Number: ");
+                scanf("%s", p->num);
+                if (strlen(p->num) != 10)
+                {
+                    printf("Invalid Phone Number!\n\n");
+                }
+                else
+                    break;
+            }
+            break;
+        case 5:
+            break;
+        }
+    }
 }
 
 int main()
